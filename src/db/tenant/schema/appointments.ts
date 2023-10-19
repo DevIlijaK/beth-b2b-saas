@@ -7,18 +7,20 @@ export const tickets = sqliteTable(
   {
     id: integer("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
     user_id: text("user_id").notNull(),
+    location_id: text("location_id").notNull(),
     date_time: integer("date_time", { mode: "timestamp" }).notNull(),
     duration: integer("duration").notNull(),
     status: text("status", {
       enum: ["reserved", "confirmed", "canceled"],
     }).notNull(),
-    location_id: text("location_id").notNull(),
     additional_comments: text("additional_comments"),
     price: real("price"),
     reminders_enabled: integer("reminders_enabled", { mode: 'boolean' }),
   },
   (table) => ({
     status_index: index("status_index").on(table.status),
+    user_id_index: index("user_id_index").on(table.status),
+    location_id_index: index("location_id_index").on(table.status),
   }),
 );
 
