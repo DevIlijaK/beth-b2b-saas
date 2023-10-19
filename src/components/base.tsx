@@ -23,9 +23,9 @@ export const BaseHtml = ({ children }: PropsWithChildren) => (
     </head>
     <body hx-boost="true" class="h-screen">
       <h1 class=" bg-blue-500 p-5 text-center text-3xl font-bold text-white shadow-md">
-        Create BETH App
+        BETH B2B SAAS CUSTOMER SUPPORT
       </h1>
-      {children}
+      {children} 
     </body>
   </html>
 );

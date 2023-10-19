@@ -1,8 +1,5 @@
-import { OAuthRequestError } from "@lucia-auth/oauth";
 import Elysia from "elysia";
-import { parseCookie, serializeCookie } from "lucia/utils";
 import { BaseHtml } from "../../components/base";
-import { config } from "../../config";
 import { ctx } from "../../context";
 
 export const login = new Elysia().use(ctx).get("/login", async (ctx) => {
@@ -27,71 +24,71 @@ export const login = new Elysia().use(ctx).get("/login", async (ctx) => {
             Go Home
           </a>
         </div>
-        {/* <form
-            hx-post="/api/auth/signInOrUp"
-            hx-swap="innerHTML"
-            hx-target-4xx="#errorMessage"
-            class="w-96 rounded-lg bg-white p-8 shadow-md"
-          >
-            <div class="mb-4">
-              <label
-                for="handle"
-                class="mb-2 block text-sm font-medium text-gray-600"
-              >
-                Handle
-              </label>
-              <input
-                type="text"
-                name="handle"
-                id="handle"
-                placeholder="Enter your handle"
-                class="w-full rounded-md border p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              />
-            </div>
-            <div class="mb-4">
-              <label
-                for="password"
-                class="mb-2 block text-sm font-medium text-gray-600"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Enter your password"
-                class="w-full rounded-md border p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              />
-            </div>
-            <div class="flex flex-col gap-2">
-              <button
-                type="submit"
-                name="action"
-                value="signin"
-                class="w-full rounded-md bg-indigo-600 p-2 text-white hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
-              >
-                Sign In
-              </button>
-              <button
-                type="submit"
-                name="action"
-                value="signup"
-                class="w-full rounded-md bg-green-600 p-2 text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
-              >
-                Sign Up
-              </button> */}
-        <a
-          hx-boost="false"
-          href="/api/auth/login/google"
-          class="display-block rounded-lg bg-gray-800 p-2 text-center text-white transition duration-200 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+        <form
+          hx-post="/api/auth/signInOrUp"
+          hx-swap="innerHTML"
+          hx-target-4xx="#errorMessage"
+          class="w-96 rounded-lg bg-white p-8 shadow-md"
         >
-          Sign In with Google
-          <div class="i-logos-google-icon inline-block text-2xl" />
-        </a>
+          <div class="mb-4">
+            <label
+              for="name"
+              class="mb-2 block text-sm font-medium text-gray-600"
+            >
+              Username
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your username"
+              class="w-full rounded-md border p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="password"
+              class="mb-2 block text-sm font-medium text-gray-600"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+              class="w-full rounded-md border p-2 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <button
+              type="submit"
+              name="action"
+              value="signin"
+              class="w-full rounded-md bg-indigo-600 p-2 text-white hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+            >
+              Sign In
+            </button>
+            <button
+              type="submit"
+              name="action"
+              value="signup"
+              class="w-full rounded-md bg-green-600 p-2 text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
+            >
+              Sign Up
+            </button>
+            <a
+              hx-boost="false"
+              href="/api/auth/login/google"
+              class="display-block rounded-lg bg-gray-800 p-2 text-center text-white transition duration-200 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+            >
+              Sign In with Google
+              <div class="i-logos-google-icon inline-block text-2xl" />
+            </a>
+          </div>
+          <div id="errorMessage" class="pt-4 text-red-500"></div>
+        </form>
       </div>
-      <div id="errorMessage" class="pt-4 text-red-500"></div>
-      {/* </form> */}
-      {/* </div> */}
     </BaseHtml>
   ));
 });

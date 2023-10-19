@@ -20,6 +20,7 @@ const env = createEnv({
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
     HOST_URL: z.string(),
+    TURSO_API_KEY: z.string()
   },
   runtimeEnv: process.env,
 });
