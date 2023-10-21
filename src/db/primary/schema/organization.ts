@@ -8,7 +8,7 @@ export const organizations = sqliteTable(
         id: integer("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
         name: text("name").notNull(),
         database_name: text("database_name").notNull(),
-        database_auth_token: text("database_auth+token").notNull()
+        database_auth_token: text("database_auth_token").notNull()
 })
 
 export const organizationsRelations = relations(organizations, ({many}) => ({
